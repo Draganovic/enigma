@@ -46,10 +46,40 @@ class OffsetTest < Minitest::Test
     key = "41521"
     off = Offset.new(key, date)
 
-    assert_equal 47, off.a_char_rotation
-    assert_equal 17, off.b_char_rotation
-    assert_equal 54, off.c_char_rotation
-    assert_equal 26, off.d_char_rotation
+    assert_equal 47, off.a_char_offset
+    assert_equal 17, off.b_char_offset
+    assert_equal 54, off.c_char_offset
+    assert_equal 26, off.d_char_offset
   end
+
+  def test_it_can_encrypt_a_position
+    message = "d"
+    date = "101215"
+    key = "41521"
+
+    en = Encrypt.new(message)
+    off = Offset.new(key, date)
+
+    tot = off.a_char_offset + en.letter_position
+
+    assert_equal 50, off.num_offset(message)
+  end
+
+  def test_it_can_encrypt_a_position
+  skip
+    message = "da"
+    date = "101215"
+    key = "41521"
+
+    en = Encrypt.new(message)
+    off = Offset.new(key, date)
+
+    message.num_offset
+
+    assert_equal 50, off.num_offset
+  end
+
+
+
 
 end
