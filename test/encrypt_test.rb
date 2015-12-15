@@ -41,7 +41,7 @@ class EncryptTest < Minitest::Test
 
     en = Encrypt.new(message, key, date)
 
-    assert_equal 'l', en.encrypt
+    assert_equal 'k', en.encrypt
   end
 
   def test_it_can_encrypt_a_message
@@ -51,7 +51,30 @@ class EncryptTest < Minitest::Test
 
     en = Encrypt.new(message, key, date)
 
-    assert_equal '659xi8txio.87r63fypezc', en.encrypt
+    assert_equal '548wh7swhn 76q52exodyb', en.encrypt
   end
+
+  def test_it_can_encrypt_a_name
+    message = "admir"
+    date = "101215"
+    key = "41521"
+
+    en = Encrypt.new(message, key, date)
+
+    assert_equal 'ht07y', en.encrypt
+  end
+
+  def test_it_can_decrypt_a_message
+    message = "k"
+    date = "101215"
+    key = "41521"
+
+    en = Encrypt.new(message, key, date)
+
+    assert_equal 'd', en.decrypt
+  end
+
+
+
 
 end

@@ -20,9 +20,17 @@ class Encrypt
 
   def encrypt
     @offset.num_offset(message).map do |num|
-      until num < 39
-        num = num % 39
-      end
+      num = (num % 39) - 1
+
+      @character_set.char_map[num]
+    end.join
+  end
+
+
+  def decrypt
+    @offset.reverse_num_offset(message).map do |num|
+      num = (num % 39) + 1
+      
       @character_set.char_map[num]
     end.join
   end

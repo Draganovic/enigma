@@ -9,6 +9,7 @@ class Offset
   def initialize(key = Random.rand(0..9999).to_s, date = Time.now.strftime('%d%m%y').to_i)
     @key = key
     @date = date
+    @rotations
   end
 
   def square_date
@@ -82,4 +83,15 @@ class Offset
       lp
     end
   end
+
+  def reverse_num_offset(message)
+    count = 0
+    en = Encrypt.new(message)
+    en.letter_position.map do |lp|
+      lp -= character_offset[count]
+      count == 3 ? count = 0 : count += 1
+      lp
+    end
+  end
+
 end

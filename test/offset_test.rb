@@ -66,19 +66,32 @@ class OffsetTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_position
-  skip
-    message = "da"
+
+    en_message = "admir"
     date = "101215"
     key = "41521"
 
-    en = Encrypt.new(message)
+    en = Decrypt.new(en_message)
     off = Offset.new(key, date)
 
-    message.num_offset
 
-    assert_equal 50, off.num_offset
+
+    assert_equal [47, 20, 66, 34, 64], off.num_offset(message)
   end
 
+  def test_it_can_encrypt_a_position
+
+    en_message = "admir"
+    date = "101215"
+    key = "41521"
+
+    en = Decrypt.new(en_message)
+    off = Offset.new(key, date)
+
+
+
+    assert_equal [47, 20, 66, 34, 64], off.num_offset(message)
+  end
 
 
 
