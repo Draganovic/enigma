@@ -5,7 +5,7 @@ class Encrypt
 
   attr_reader :message
 
-  def initialize(message, key = nil, date = nil)
+  def initialize(message = nil, key = nil, date = nil)
     @message = message
     @character_set = Chars.new
     @offset = Offset.new(key, date)
@@ -21,16 +21,6 @@ class Encrypt
   def encrypt
     @offset.num_offset(message).map do |num|
       num = (num % 39) - 1
-
-      @character_set.char_map[num]
-    end.join
-  end
-
-
-  def decrypt
-    @offset.reverse_num_offset(message).map do |num|
-      num = (num % 39) + 1
-      
       @character_set.char_map[num]
     end.join
   end

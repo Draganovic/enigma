@@ -3,25 +3,19 @@ require './lib/chars'
 require 'pry'
 class Decrypt
 
-  attr_reader :reverse_offset
+  attr_reader :reverse_offset, :encrypted_message
 
-  def initialize(encrypted_message, key = nil, date = nil)
+  def initialize(encrypted_message =nil, key = nil, date = nil)
     @encrypted_message = encrypted_message
     @character_set = Chars.new
     @offset = Offset.new(key, date)
-    @reverse_offset = reverse_offset
   end
 
-
-
-
-  # def decrypt
-  #   @offset.num_offset(message).map do |num|
-  #     num = num % 39
-  #     @character_set.char_map[num]
-  #   end.join
-  # end
-
-
+  def decrypt
+    @offset.reverse_num_offset(encrypted_message).map do |num|
+      num = (num % 39) + 1
+      @character_set.char_map[num]
+    end.join
+  end
 
 end

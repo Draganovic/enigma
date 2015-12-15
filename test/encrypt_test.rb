@@ -64,15 +64,15 @@ class EncryptTest < Minitest::Test
     assert_equal 'ht07y', en.encrypt
   end
 
-  def test_it_can_decrypt_a_message
-    message = "k"
-    date = "101215"
-    key = "41521"
-
-    en = Encrypt.new(message, key, date)
-
-    assert_equal 'd', en.decrypt
-  end
+  # def test_it_can_decrypt_a_message
+  #   message = "k"
+  #   date = "101215"
+  #   key = "41521"
+  #
+  #   en = Encrypt.new(message, key, date)
+  #
+  #   assert_equal 'd', en.decrypt
+  # end
 
 
 
