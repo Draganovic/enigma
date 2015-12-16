@@ -9,7 +9,6 @@ class Offset
   def initialize(key = Random.rand(0..9999).to_s, date = Time.now.strftime('%d%m%y').to_i)
     @key = key
     @date = date
-    @rotations
   end
 
   def square_date

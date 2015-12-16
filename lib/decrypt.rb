@@ -15,7 +15,7 @@ class Decrypt
     @offset.reverse_num_offset(encrypted_message).map do |num|
       num = (num % 39) + 1
       @character_set.char_map[num]
-    end.join
+    end.join.capitalize
   end
 
 end

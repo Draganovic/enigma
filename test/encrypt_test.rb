@@ -1,4 +1,6 @@
 require 'pry'
+require 'simplecov'
+SimpleCov.start
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/encrypt'
@@ -44,6 +46,16 @@ class EncryptTest < Minitest::Test
     assert_equal 'k', en.encrypt
   end
 
+  def test_it_can_encrypt_letter_a
+    message = "a"
+    date = "101215"
+    key = "41521"
+
+    en = Encrypt.new(message, key, date)
+
+    assert_equal 'h', en.encrypt
+  end
+
   def test_it_can_encrypt_a_message
     message = "you are a wizard harry"
     date = "101215"
@@ -64,17 +76,24 @@ class EncryptTest < Minitest::Test
     assert_equal 'ht07y', en.encrypt
   end
 
-  # def test_it_can_decrypt_a_message
-  #   message = "k"
-  #   date = "101215"
-  #   key = "41521"
-  #
-  #   en = Encrypt.new(message, key, date)
-  #
-  #   assert_equal 'd', en.decrypt
-  # end
+  def test_it_can_encrypt_message
+    message = "This is so secret ..end.."
+    date = "101215"
+    key = "41521"
 
+    en = Encrypt.new(message, key, date)
 
+    assert_equal '0xweey6wz4lels530nmxl3rxf', en.encrypt
+  end
 
+  def test_it_can_take_a_empty_string
+    message = ''
+    date = "101215"
+    key = "41521"
+
+    en = Encrypt.new(message, key, date)
+
+    assert_equal '', en.encrypt
+  end
 
 end
