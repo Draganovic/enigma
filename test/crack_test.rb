@@ -57,7 +57,7 @@ class CrackTest < Minitest::Test
                        #"his is so secret ..end.."
     c = Crack.new(encrypted_message)
 
-    assert_equal [16, 14, 25, 7], c.crack
+    assert_equal [16, 14, 25, 7], c.rot_calc
   end
 
   def test_mod_one_rotation_array
@@ -65,7 +65,7 @@ class CrackTest < Minitest::Test
                        #"This is so secret ..end.."
     c = Crack.new(encrypted_message)
 
-    assert_equal [7, 16, 14, 25], c.crack
+    assert_equal [7, 16, 14, 25], c.rot_calc
   end
 
   def test_mod_two_rotation_array
@@ -73,7 +73,7 @@ class CrackTest < Minitest::Test
                        #"s is so secret ..end.."
     c = Crack.new(encrypted_message)
 
-    assert_equal [25, 7, 16, 14], c.crack
+    assert_equal [25, 7, 16, 14], c.rot_calc
   end
 
   def test_mod_three_rotation_array
@@ -81,8 +81,21 @@ class CrackTest < Minitest::Test
                        #"is is so secret ..end.."
     c = Crack.new(encrypted_message)
 
-    assert_equal [14, 25, 7, 16], c.crack
+    assert_equal [14, 25, 7, 16], c.rot_calc
   end
 
+  def test_it_can_get_index_position_of_each_cracked_letter
+    encrypted_message = "0xweey6wz4lels530nmxl3rxf"
+    c = Crack.new(encrypted_message)
+
+    assert_equal [19, 7, 8, 18, 36, 8, 18, 36, 18, 14, 36, 18, 4, 2, 17, 4, 19, 36, 37, 37, 4, 13, 3, 37, 37], c.crack_index(encrypted_message)
+  end
+
+  def test_it_can_crack
+    encrypted_message = "0xweey6wz4lels530nmxl3rxf"
+    c = Crack.new(encrypted_message)
+
+    assert_equal "This is so secret ..end..", c.crack
+  end
 
 end

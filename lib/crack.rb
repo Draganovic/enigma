@@ -1,4 +1,6 @@
 require './lib/chars'
+require './lib/encrypt'
+require './lib/decrypt'
 require 'pry'
 
 
@@ -35,7 +37,7 @@ class Crack
     (letter_pos - character_set.char_map.index('n')) % character_set.char_map.length
   end
 
-  def crack
+  def rot_calc
     rotations = []
     if mod_positiion == 0
       rotations << mod_three_rotation << mod_two_rotation << mod_one_rotation << mod_zero_rotation
@@ -48,5 +50,33 @@ class Crack
     end
   end
 
+  def crack_index(encrypted_message)
+    rc_index = 0
+    en = Encrypt.new(encrypted_message)
+    en.letter_position.map do |lp|
+      lp -= rot_calc[rc_index]
+      lp = make_pos_on_char_map(lp)
+      rc_index = rc_increase(rc_index)
+      lp
+    end
+  end
+
+  def crack
+    crack_index(encrypted_message).map do |num|
+      num = (num % 39)
+      character_set.char_map[num]
+    end.join.capitalize
+  end
+
+  private
+
+  def rc_increase(rc_index)
+      rc_index >= 3 ? 0 : rc_index +=1
+  end
+
+  def make_pos_on_char_map(lp)
+    lp += 39 if lp.between?(-1000, -1)
+    lp
+  end
 
 end

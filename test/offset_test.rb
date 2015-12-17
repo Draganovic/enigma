@@ -66,12 +66,11 @@ class OffsetTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_position
-
-    en_message = "admir"
+    message = "admir"
     date = "101215"
     key = "41521"
 
-    en = Decrypt.new(en_message)
+    en = Decrypt.new(message)
     off = Offset.new(key, date)
 
 
@@ -80,12 +79,11 @@ class OffsetTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_position
-
-    en_message = "admir"
+    message = "admir"
     date = "101215"
     key = "41521"
 
-    en = Decrypt.new(en_message)
+    en = Encrypt.new(message)
     off = Offset.new(key, date)
 
 

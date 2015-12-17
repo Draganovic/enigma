@@ -12,7 +12,7 @@ class Offset
   end
 
   def square_date
-    date_squared = @date.to_i ** 2
+    date_squared = date.to_i ** 2
     date_squared.to_s.split('')
   end
 
@@ -33,19 +33,19 @@ class Offset
   end
 
   def a_key_offset
-    key_offset = @key[0..1].to_i
+    key_offset = key[0..1].to_i
   end
 
   def b_key_offset
-    key_offset = @key[1..2].to_i
+    key_offset = key[1..2].to_i
   end
 
   def c_key_offset
-    key_offset = @key[2..3].to_i
+    key_offset = key[2..3].to_i
   end
 
   def d_key_offset
-    key_offset = @key[3..4].to_i
+    key_offset = key[3..4].to_i
   end
 
   def a_char_offset
@@ -69,7 +69,7 @@ class Offset
       0 => a_char_offset,
       1 => b_char_offset,
       2 => c_char_offset,
-      3=> d_char_offset
+      3 => d_char_offset
     }
   end
 

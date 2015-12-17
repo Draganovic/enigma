@@ -26,3 +26,7 @@ class Encrypt
   end
 
 end
+
+if __FILE__ == $0
+binding.pry
+end

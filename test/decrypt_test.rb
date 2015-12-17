@@ -26,17 +26,6 @@ class DecryptTest < Minitest::Test
     assert_equal 'This is so secret ..end..', de.decrypt
   end
 
-  def test_it_can_encrypt_letter_a
-    skip
-    message = "h"
-    date = "101215"
-    key = "41521"
-
-    de = Decrypt.new(message, key, date)
-
-    assert_equal 'a', de.decrypt
-  end
-
   def test_it_can_take_a_empty_string
     message = ""
     date = "101215"
