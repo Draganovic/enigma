@@ -33,6 +33,14 @@
         null,
         1,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         null
       ],
       "/Users/admirdraganovic/turing/1.2module/projects/enigma/lib/offset.rb": [
@@ -145,6 +153,6 @@
         null
       ]
     },
-    "timestamp": 1450312235
+    "timestamp": 1450329272
   }
 }

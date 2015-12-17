@@ -3,9 +3,9 @@ require './lib/offset'
 require './lib/chars'
 class Encrypt
 
-  attr_reader :message
+  attr_reader :message, :key, :date
 
-  def initialize(message = nil, key = nil, date = nil)
+  def initialize(message = nil, key = Random.rand(0..9999).to_s, date = Time.now.strftime('%d%m%y').to_i)
     @message = message
     @character_set = Chars.new
     @offset = Offset.new(key, date)
@@ -28,5 +28,13 @@ class Encrypt
 end
 
 if __FILE__ == $0
-binding.pry
+  message = ARGV[0]
+  encrypted = ARGV[1]
+  message = File.read(ARGV[0])
+  message.delete!("\n")
+  en = Encrypt.new(message)
+  encrypted = en.encrypt
+  handle = File.open(ARGV[1], "w")
+  handle.write(encrypted)
+  puts "Created #{ARGV[1]} with a key #{en.key} and date #{en.date}"
 end

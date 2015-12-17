@@ -96,5 +96,4 @@ class EncryptTest < Minitest::Test
     assert_equal '', en.encrypt
   end
 
-
 end

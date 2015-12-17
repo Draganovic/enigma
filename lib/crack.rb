@@ -80,3 +80,15 @@ class Crack
   end
 
 end
+
+if __FILE__ == $0
+  encrypted= ARGV[0]
+  cracked = ARGV[1]
+  encrypted = File.read(ARGV[0])
+  encrypted.delete!("\n")
+  c = Crack.new(message)
+  cracked = c.crack
+  handle = File.open(ARGV[1], "w")
+  handle.write(cracked)
+  puts "Created #{ARGV[1]}."
+end

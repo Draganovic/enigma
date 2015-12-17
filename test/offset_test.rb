@@ -91,6 +91,18 @@ class OffsetTest < Minitest::Test
     assert_equal [47, 20, 66, 34, 64], off.num_offset(message)
   end
 
+  # def test_it_can_offset
+  #   message = "admir"
+  #
+  #
+  #
+  #   off = Offset.new
+  #
+  #
+  #
+  #   assert_equal [47, 20, 66, 34, 64], off.num_offset(message)
+  # end
+
 
 
 end
