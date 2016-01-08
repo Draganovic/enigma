@@ -3,7 +3,6 @@ require './lib/encrypt'
 require './lib/decrypt'
 require 'pry'
 
-
 class Crack
 
   attr_accessor :encrypted_message, :character_set

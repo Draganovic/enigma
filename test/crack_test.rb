@@ -1,6 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/crack'
+require 'simplecov'
+SimpleCov.start
 
 class CrackTest < Minitest::Test
 

@@ -3,6 +3,8 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/decrypt'
 require './lib/offset'
+require 'simplecov'
+SimpleCov.start
 
 class DecryptTest < Minitest::Test
 

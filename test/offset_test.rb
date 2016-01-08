@@ -1,6 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/offset'
+require 'simplecov'
+SimpleCov.start
 
 class OffsetTest < Minitest::Test
 

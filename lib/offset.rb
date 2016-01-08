@@ -2,8 +2,6 @@ require 'pry'
 require './lib/encrypt'
 class Offset
 
-
-
   attr_reader :key, :date
 
   def initialize(key = Random.rand(0..9999).to_s, date = Time.now.strftime('%d%m%y').to_i)
